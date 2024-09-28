@@ -1,1 +1,11 @@
-<p>layout works!</p>
+<div class="w-full flex">
+  <div class="hidden md:block md:w-[260px] h-screen fixed">
+    <app-sidebar />
+  </div>
+  <div class="ml-[260px] w-full">
+    <app-header />
+    <div class="">
+      <router-outlet />
+    </div>
+  </div>
+</div>

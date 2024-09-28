@@ -30,4 +30,29 @@ export class AuthService {
       )
   }
 
+
+
+  /*
+
+  public checkToken = (): Observable<boolean> => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.logout();
+      return throwError('Token not found');
+    }
+    return this.http.get(`${this.baseUrl}/auth/check-token`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .pipe(
+        map(() => true),
+        catchError(() => {
+          this.logout();
+          return throwError('Token not valid');
+        })
+      )
+  }
+   */
+
 }

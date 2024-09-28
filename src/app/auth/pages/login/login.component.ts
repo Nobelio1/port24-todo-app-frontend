@@ -29,7 +29,7 @@ export class LoginComponent {
     const user: Login = {email: email!, password: password!};
 
     this.authService.login(user).subscribe({
-      next: () => this.router.navigateByUrl('/core'),
+      next: () => this.router.navigateByUrl('/core/panel'),
       error: (message) => console.log('Error', message)
     })
   }
