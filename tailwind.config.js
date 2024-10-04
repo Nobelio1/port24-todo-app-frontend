@@ -11,6 +11,11 @@ module.exports = {
         "todo-header": "#6F2F4F",
         sidebar: "#221D24",
         "boton-hover": "#FFFFFF33",
+        "todo-card": "#101304",
+        "todo-item": "#22272B",
+      },
+      textColor: {
+        todo: "#B6C2CF",
       },
     },
   },

@@ -4,26 +4,51 @@
     <div class="flex flex-col py-8 px-10 w-[480px]">
       <div class="flex flex-col justify-center mb-6">
         <div class="bg-orange-100 w-fit rounded-2xl self-center p-2 mb-6">
-          <svg width="60px" height="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 8V5C6 4.44772 6.44772 4 7 4H17C17.5523 4 18 4.44772 18 5V19C18 19.5523 17.5523 20 17 20H7C6.44772 20 6 19.5523 6 19V16M6 12H13M13 12L10.5 9.77778M13 12L10.5 14.2222" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg
+            width="60px"
+            height="60px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 8V5C6 4.44772 6.44772 4 7 4H17C17.5523 4 18 4.44772 18 5V19C18 19.5523 17.5523 20 17 20H7C6.44772 20 6 19.5523 6 19V16M6 12H13M13 12L10.5 9.77778M13 12L10.5 14.2222"
+              stroke="#464455"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </div>
-        <h1 class="text-2xl text-center mb-2 text-gray-800 font-semibold">Inicia Sesion</h1>
+        <h1 class="text-2xl text-center mb-2 text-gray-800 font-semibold">
+          Inicia Sesion
+        </h1>
       </div>
       <div>
         <form class="flex-col flex" [formGroup]="myForm" (ngSubmit)="login()">
           <div class="bg-gray-50 px-6 py-2 rounded-lg mb-2">
-            <input formControlName="email" type="text" placeholder="Email" class="bg-transparent w-full focus:outline-none" />
+            <input
+              formControlName="email"
+              type="text"
+              placeholder="Email"
+              class="bg-transparent w-full focus:outline-none"
+            />
           </div>
           <div class="bg-gray-50 px-6 py-2 rounded-lg mb-2">
-            <input formControlName="password" type="password" placeholder="Password" class="bg-transparent w-full focus:outline-none" />
+            <input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+              class="bg-transparent w-full focus:outline-none"
+            />
           </div>
-          <button class="bg-orange-100 py-2 rounded-lg hover:bg-orange-200 transition-colors" type="submit">Ingresar</button>
+          <button
+            class="bg-orange-100 py-2 rounded-lg hover:bg-orange-200 transition-colors"
+            type="submit"
+          >
+            Ingresar
+          </button>
         </form>
       </div>
     </div>
   </main>
 </div>
-
-
-

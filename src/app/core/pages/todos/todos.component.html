@@ -1,34 +1,120 @@
-<div class="p-6">
-  <div class="example-container">
-    <h2>To do</h2>
+<div class="flex gap-5">
+  <!-- LISTA DE TAREAS -->
+  <div class="w-[275px] h-fit bg-todo-card text-todo p-4 rounded-lg">
+    <div class="flex items-center justify-between mb-4">
+      <p class="text-sm font-bold">Lista de Tareas</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#B6C2CF"
+      >
+        <path
+          d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"
+        />
+      </svg>
+    </div>
 
     <div
+      [id]="todoService.todoListId"
       cdkDropList
       #todoList="cdkDropList"
       [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[doneList]"
+      [cdkDropListConnectedTo]="[
+        todoService.doneListId,
+        todoService.inProggesListId
+      ]"
       class="example-list"
       (cdkDropListDropped)="drop($event)"
     >
       @for (item of todo; track item) {
-      <div class="example-box" cdkDrag>{{ item }}</div>
+      <div
+        class="h-[36px] bg-todo-item my-2 flex items-center justify-start px-4 py-6 rounded-lg text-sm"
+        cdkDrag
+      >
+        {{ item }}
+      </div>
       }
     </div>
   </div>
 
-  <div class="example-container">
-    <h2>Done</h2>
+  <!-- TAREAS COMPLETADAS -->
+  <div class="w-[275px] h-fit bg-todo-card text-todo p-4 rounded-lg">
+    <div class="flex items-center justify-between mb-4">
+      <p class="text-sm font-bold">En Curso</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#B6C2CF"
+      >
+        <path
+          d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"
+        />
+      </svg>
+    </div>
 
     <div
+      [id]="todoService.inProggesListId"
+      cdkDropList
+      #inProggesList="cdkDropList"
+      [cdkDropListData]="inProgges"
+      [cdkDropListConnectedTo]="[
+        todoService.todoListId,
+        todoService.doneListId
+      ]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of inProgges; track item) {
+      <div
+        class="h-[36px] bg-todo-item my-2 flex items-center justify-start px-4 py-6 rounded-lg text-sm"
+        cdkDrag
+      >
+        {{ item }}
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- TAREAS EN CURSO -->
+  <div class="w-[275px] h-fit bg-todo-card text-todo p-4 rounded-lg">
+    <div class="flex items-center justify-between mb-4">
+      <p class="text-sm font-bold">Completado</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#B6C2CF"
+      >
+        <path
+          d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"
+        />
+      </svg>
+    </div>
+
+    <div
+      [id]="todoService.doneListId"
       cdkDropList
       #doneList="cdkDropList"
       [cdkDropListData]="done"
-      [cdkDropListConnectedTo]="[todoList]"
+      [cdkDropListConnectedTo]="[
+        todoService.todoListId,
+        todoService.inProggesListId
+      ]"
       class="example-list"
       (cdkDropListDropped)="drop($event)"
     >
       @for (item of done; track item) {
-      <div class="example-box" cdkDrag>{{ item }}</div>
+      <div
+        class="h-[36px] bg-todo-item my-2 flex items-center justify-start px-4 py-6 rounded-lg text-sm"
+        cdkDrag
+      >
+        {{ item }}
+      </div>
       }
     </div>
   </div>

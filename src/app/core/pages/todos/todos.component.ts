@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -6,6 +6,7 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
+import { TodosService } from '../../../services/todos.service';
 
 @Component({
   selector: 'app-todos',
@@ -16,20 +17,28 @@ import {
 })
 export class TodosComponent {
 
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  public todoService = inject(TodosService);
 
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  public todo = this.todoService.todoSource();
+  public done = this.todoService.doneSource();
+  public inProgges = this.todoService.inProggesSource();
 
   drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
+    console.log(event);
+    if (event.previousContainer !== event.container) {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
+      this.updateLists();
     }
+  }
+
+  updateLists(){
+    this.todoService.todoSource.set(this.todo);
+    this.todoService.doneSource.set(this.done);
+    this.todoService.inProggesSource.set(this.inProgges);
   }
 }
