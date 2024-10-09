@@ -25,6 +25,16 @@ html {
   height: 100%;
 }
 
+/*SIDENAV*/
+mat-drawer {
+  background-color: #221d24 !important;
+  border-radius: 0px !important;
+}
+
+mat-drawer-container {
+  background-color: transparent !important;
+}
+
 /*CARD-TODO*/
 .example-container {
   width: 400px;

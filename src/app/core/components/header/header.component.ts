@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -8,5 +7,7 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class HeaderComponent {
+
+
 
 }

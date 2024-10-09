@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { SidenavService, SidenavType } from '../../../shared/services/sidenav.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,6 +10,12 @@ import { Component, input } from '@angular/core';
   styles: ``
 })
 export class SearchBarComponent {
-
+  public SidenavType = SidenavType;
   public addMember = input<boolean>(false)
+  public sidenavSercie = inject(SidenavService)
+
+  public toggleSidenav(type: number) {
+    this.sidenavSercie.toggle(type);
+  }
+
 }

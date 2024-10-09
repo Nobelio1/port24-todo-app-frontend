@@ -9,12 +9,18 @@
       Filtrar
     </button>
     @if(addMember()){
-    <button class="text-white hover:bg-boton-hover px-2 rounded-lg py-1">
+    <button
+      (click)="toggleSidenav(SidenavType.ADD_MEMBER)"
+      class="text-white hover:bg-boton-hover px-2 rounded-lg py-1"
+    >
       <!-- icon-svg -->
       Añadir Miembro
     </button>
     } @else {
-    <button class="text-white hover:bg-boton-hover px-2 rounded-lg py-1">
+    <button
+      (click)="toggleSidenav(SidenavType.ADD_TABLE)"
+      class="text-white hover:bg-boton-hover px-2 rounded-lg py-1"
+    >
       <!-- icon-svg -->
       Añadir Tabla
     </button>
