@@ -1,13 +1,31 @@
+@use "@angular/material" as mat;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
+$theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+  )
+);
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  height: 100%;
+
+  @include mat.all-component-themes($theme);
 }
 
+html {
+  height: 100%;
+}
+
+/*CARD-TODO*/
 .example-container {
   width: 400px;
   max-width: 100%;
@@ -37,6 +55,7 @@
   font-size: 14px;
 }
 
+/*ANIMACION DEL LOS TODO*/
 .cdk-drag-preview {
   box-sizing: border-box;
   border-radius: 4px;
@@ -59,3 +78,6 @@
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+@include mat.core();
+@include mat.color-variants-backwards-compatibility($theme);

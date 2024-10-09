@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './search-bar.component.html',
   styles: ``
 })
 export class SearchBarComponent {
 
+  public addMember = input<boolean>(false)
 }
